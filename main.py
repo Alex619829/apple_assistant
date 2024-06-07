@@ -7,6 +7,7 @@ import random
 import wave
 import pyaudio
 import subprocess
+import os
 
 
 print(f"{config.VA_NAME} начало свою работу ...")
@@ -23,7 +24,7 @@ def va_respond(voice: str):
 
         num = random.randint(1, 4)
 
-        play(f'audios/mention_{num}.wav')
+        play(f'{config.DIR}/audios/mention_{num}.wav')
 
 
 
@@ -54,7 +55,7 @@ def send_to_gpt(text):
     tts.synthesize('audio', response)
     print('Запуск пригрывания аудио')
     play('audio.wav')
-
+    os.remove('audio.wav')
 
 
 def play(audio):

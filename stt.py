@@ -5,8 +5,9 @@ import sys
 import sounddevice as sd
 import queue
 import json
+import config
 
-model = vosk.Model("model_small")
+model = vosk.Model(f"{config.DIR}/model_small")
 samplerate = 16000
 device = 10
 
